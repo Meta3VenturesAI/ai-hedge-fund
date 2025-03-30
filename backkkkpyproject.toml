@@ -1,0 +1,65 @@
+# --- START OF REVISED pyproject.toml ---
+
+[tool.poetry]
+name = "ai-hedge-fund"
+version = "0.1.0"
+description = "An AI-powered hedge fund that uses multiple agents to make trading decisions"
+authors = ["Your Name <your.email@example.com>"]
+readme = "README.md"
+packages = [
+    { include = "src", from = "." }
+]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+# Core LangChain & Providers - Loosened slightly within minor versions
+langchain = "^0.3.0" # Was "0.3.0", allow patch updates
+langchain-core = "^0.1.52" # Added explicitly, find compatible patch for LC 0.3.0 (check `poetry show langchain` for its core requirement)
+langchain-community = "^0.0.38" # Allow compatible patch updates
+langchain-anthropic = "^0.3.5" # Kept original constraint
+langchain-groq = "^0.2.3" # Kept original constraint
+langchain-openai = "^0.3.5" # Kept original constraint
+langchain-deepseek = "^0.1.2" # Kept original constraint
+#langchain-google-genai = "^0.1.0" # Relaxed from 2.0.11 to be compatible with older LC core
+langchain-mistralai = "^0.1.0" # <<<--- ADDED NEW PROVIDER (likely compatible range)
+
+# LangGraph - Loosened slightly
+langgraph = "^0.2.50" # Was "0.2.56", allow patch updates near original
+
+# Data Handling & Analysis
+pandas = "^2.1.0" # Kept original constraint
+numpy = "^1.24.0" # Kept original constraint
+
+# API Interaction & Environment
+requests = "^2.30.0" # Assumed based on common usage
+python-dotenv = "1.0.0" # Kept original constraint
+# financialdatasets-ai = "^X.Y.Z" # If needed
+# alpaca-trade-api = "^3.0.0" # If needed
+
+# User Interface & Display
+questionary = "^2.1.0" # Kept original constraint
+rich = "^13.9.4" # Kept original constraint
+colorama = "^0.4.6" # Kept original constraint
+tabulate = "^0.9.0" # Kept original constraint
+matplotlib = "^3.9.2" # Kept original constraint
+
+# Pydantic
+pydantic = "^2.5.0" # Assumed based on common usage with LangChain 0.3
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.0"
+black = "^23.7.0"
+isort = "^5.12.0"
+flake8 = "^6.1.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 420 # Note: This is extremely long, typically 88 or 120 is standard
+target-version = ['py39']
+include = '\.pyi?$'
+
+# --- END OF REVISED pyproject.toml ---
