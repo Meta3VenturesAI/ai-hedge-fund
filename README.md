@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # AI Hedge Fund
 
 This is a proof of concept for an AI-powered hedge fund.  The goal of this project is to explore the use of AI to make trading decisions.  This project is for **educational** purposes only and is not intended for real trading or investment.
@@ -166,3 +167,6 @@ If you have a feature request, please open an [issue](https://github.com/virattt
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
+=======
+# ai-hedge-fund
+>>>>>>> origin/main
